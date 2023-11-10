@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_app/pages/cart_page.dart';
+import 'package:flutter_ecommerce_app/pages/intro_page.dart';
 import 'package:flutter_ecommerce_app/pages/shop_page.dart';
 import '../components/bottom_nav_bar.dart';
 
@@ -42,11 +43,18 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        leading: IconButton(
-            color: Colors.black,
-            onPressed: () {},
-            icon: const Icon(Icons.menu)),
+        leading: Builder(builder: (context) {
+          return IconButton(
+            icon: const Icon(Icons.menu, color: Colors.black),
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+              // Navigator.push(
+              //     context, MaterialPageRoute(builder: (context) => IntroPage()));
+            },
+          );
+        }),
       ),
+      drawer: Drawer(),
       body: _page[_selectedIndex],
     );
   }
