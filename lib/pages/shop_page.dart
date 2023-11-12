@@ -79,11 +79,8 @@ class _ShopPageState extends State<ShopPage> {
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) {
                     //careate a shoe
-                    Shoe shoe = Shoe(
-                        name: 'Air Jordan',
-                        price: '240',
-                        description: 'cool shoe',
-                        imagePath: 'lib/images/1.jpg');
+                    Shoe shoe = value.getShoeList()[index];
+                    //return the shoe
                     return ShoeTile(
                       shoe: shoe,
                     );
